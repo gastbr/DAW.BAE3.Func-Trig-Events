@@ -2,7 +2,7 @@ DROP DATABASE IF EXISTS clases;
 CREATE DATABASE clases;
 USE clases;
 
--- Paso 2 
+-- 1
 CREATE TABLE alumnos (
     id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     nombre VARCHAR(50) NOT NULL,
@@ -12,7 +12,6 @@ CREATE TABLE alumnos (
     email char(30)
 );
 
--- Paso 3
 DELIMITER $$
 DROP TRIGGER IF EXISTS trigger_check_nota_before_insert$$
 CREATE TRIGGER trigger_check_nota_before_insert
@@ -39,19 +38,15 @@ BEGIN
   END IF;
 END$$
 
--- Paso 4
 DELIMITER ;
 INSERT INTO alumnos (id, nombre, apellido1, apellido2, nota) VALUES (1, 'Pepe', 'López', 'López', -1);
 INSERT INTO alumnos (id, nombre, apellido1, apellido2, nota) VALUES (2, 'María', 'Sánchez', 'Sánchez', 11);
 INSERT INTO alumnos (id, nombre, apellido1, apellido2, nota) VALUES (3, 'Juan', 'Pérez', 'Pérez', 8.5);
 
--- Paso 5
 SELECT * FROM alumnos;
 
--- Paso 6
 UPDATE alumnos SET nota = -4 WHERE id = 3;
 UPDATE alumnos SET nota = 14 WHERE id = 3;
 UPDATE alumnos SET nota = 9.5 WHERE id = 3;
 
--- Paso 7
 SELECT * FROM alumnos;
