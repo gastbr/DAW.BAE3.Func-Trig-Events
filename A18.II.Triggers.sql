@@ -1,6 +1,6 @@
-DROP DATABASE IF EXISTS test;
-CREATE DATABASE test;
-USE test;
+DROP DATABASE IF EXISTS clases;
+CREATE DATABASE clases;
+USE clases;
 
 -- Paso 2 
 CREATE TABLE alumnos (
@@ -41,9 +41,9 @@ END$$
 
 -- Paso 4
 DELIMITER ;
-INSERT INTO alumnos VALUES (1, 'Pepe', 'López', 'López', -1);
-INSERT INTO alumnos VALUES (2, 'María', 'Sánchez', 'Sánchez', 11);
-INSERT INTO alumnos VALUES (3, 'Juan', 'Pérez', 'Pérez', 8.5);
+INSERT INTO alumnos (id, nombre, apellido1, apellido2, nota) VALUES (1, 'Pepe', 'López', 'López', -1);
+INSERT INTO alumnos (id, nombre, apellido1, apellido2, nota) VALUES (2, 'María', 'Sánchez', 'Sánchez', 11);
+INSERT INTO alumnos (id, nombre, apellido1, apellido2, nota) VALUES (3, 'Juan', 'Pérez', 'Pérez', 8.5);
 
 -- Paso 5
 SELECT * FROM alumnos;
@@ -55,5 +55,3 @@ UPDATE alumnos SET nota = 9.5 WHERE id = 3;
 
 -- Paso 7
 SELECT * FROM alumnos;
-
-
